@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionnaire Mondial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <!-- Écran d'authentification -->
+    <div id="authContainer" class="container mx-auto bg-slate-800 rounded-xl shadow-2xl p-8 md:p-12 space-y-8">
+        <div class="text-center space-y-4">
+            <h1 class="text-4xl font-bold text-slate-100">Dictionnaire Mondial 📖</h1>
+            <p class="text-lg text-slate-400">Connectez-vous pour commencer.</p>
+        </div>
+        <div class="space-y-4">
+            <input type="text" id="pseudonymInput" placeholder="Pseudonyme" class="w-full px-5 py-3 text-slate-100 bg-slate-700 border-2 border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200">
+            <input type="password" id="passwordInput" placeholder="Mot de passe" class="w-full px-5 py-3 text-slate-100 bg-slate-700 border-2 border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200">
+            <button id="signupButton" class="w-full px-6 py-3 font-semibold text-white bg-gradient-to-r from-green-500 to-teal-600 rounded-lg shadow-lg hover:from-green-600 hover:to-teal-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition duration-200">
+                Créer un compte
+            </button>
+            <button id="loginButton" class="w-full px-6 py-3 font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-lg hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-200">
+                Se connecter
+            </button>
+        </div>
+        <div id="authMessage" class="hidden mt-4 p-4 rounded-lg text-center font-medium"></div>
+    </div>
+
+    <!-- Écran principal du dictionnaire (initialement caché) -->
+    <div id="appContainer" class="hidden container mx-auto bg-slate-800 rounded-xl shadow-2xl p-8 md:p-12 space-y-8">
+        <div class="flex items-center space-x-4">
+            <div class="text-center space-y-2 flex-1">
+                <h1 class="text-4xl font-bold text-slate-100">Dictionnaire Mondial 📖</h1>
+                <p class="text-lg text-slate-400">Recherchez la définition d'un mot ou posez une question.</p>
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
+            <input type="text" id="wordInput" placeholder="Entrez un mot ou posez une question..." class="flex-1 w-full px-5 py-3 text-slate-100 bg-slate-700 border-2 border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200">
+            <button id="searchButton" class="w-full md:w-auto px-6 py-3 font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-lg hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-200">
+                Rechercher
+            </button>
+        </div>
+        <div id="historyContainer" class="space-y-2 mt-4">
+            <div class="flex items-center justify-between">
+                <h2 class="text-xl font-semibold text-slate-200">Historique</h2>
+                <button id="clearHistoryButton" class="text-sm text-slate-400 hover:text-red-400 transition-colors">Effacer l'historique</button>
+            </div>
+            <div id="historyList" class="flex flex-wrap gap-2"></div>
+        </div>
+        <div id="loading" class="hidden flex justify-center items-center mt-8">
+            <div class="spinner"></div>
+        </div>
+        <div id="resultArea" class="mt-8"></div>
+        <div id="messageBox" class="hidden mt-4 p-4 rounded-lg text-center font-medium"></div>
+        <div class="mt-4 text-center text-sm text-slate-500" id="userStatus">Non connecté</div>
+        <div class="mt-8 text-center">
+            <button id="logoutButton" class="px-4 py-2 text-sm font-semibold text-white bg-red-500 rounded-lg shadow-md hover:bg-red-600 transition-colors">Déconnexion</button>
+        </div>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
